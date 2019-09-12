@@ -9,6 +9,8 @@ With the load and usages being expressed as percentages: xx.xx
 ***
 
 ## Arduino Software
+[ResourceMonitor.ino](https://github.com/ZacTheHac/Resource-Monitor/blob/master/ResourceMonitor.ino)
+
 Assumes an 18x4 WS2811 LED array is attached on pin 12.
 
 The display is interpolated so as to smooth out the time between updates, but this also means that the graph does lag behind slightly.
@@ -17,7 +19,11 @@ Dependencies:
   * [FastLED](https://github.com/FastLED/FastLED)
 
 ## Python Script
-Accepts 2 arguments: 
+[ResourceMonitor.py](https://github.com/ZacTheHac/Resource-Monitor/blob/master/ResourceMonitor.py)
+
+Writen for Python 3.7.2
+
+Accepts 2 command-line arguments: 
 * The time between updates in seconds (By default 1)
 * The com port to send the data out through (By default will find and use the first Arduino on the system). Setting "None" disables the serial communication.
 
