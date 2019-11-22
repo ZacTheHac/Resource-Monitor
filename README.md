@@ -3,9 +3,10 @@ A Python script and Arduino software to capture the current system utilization a
 
 Simply upload the .ino to the arduino, connect the LED array to pin 12, and run the python script. The CPU, RAM, GPU0, and VRAM utilization will be displayed.
 
-The Serial communication format is:
-[The update interval in seconds],[CPU load],[RAM usage],[GPU load],[VRAM usage]
-With the load and usages being expressed as percentages: xx.xx
+The Serial communication format is:\
+[The update interval in seconds],[CPU load],[RAM usage],[GPU load],[VRAM usage]\
+With all usages being expressed as percentages with a minimum of 1 decimal place, and a maximum of 2: xx.xx (eg: 56% is sent as 56.0, 3.08% = 3.08, 1% = 1.0)\
+the ,[GPU load],[VRAM usage] may be omitted or repeated depending on the number of GPUs detected by the python script
 ***
 
 ## Arduino Software
@@ -21,7 +22,9 @@ Dependencies:
 ## Python Script
 [ResourceMonitor.py](https://github.com/ZacTheHac/Resource-Monitor/blob/master/ResourceMonitor.py)
 
-Writen for Python 3.7.2
+Writen for Python 3.7.2, tested on 3.6.8
+
+***Note: Only GPUs listed by nvidia-smd are supported at this time.***
 
 Accepts 2 command-line arguments: 
 * The time between updates in seconds (By default 1)
